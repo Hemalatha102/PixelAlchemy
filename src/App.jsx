@@ -17,6 +17,7 @@ import PaintingCanvas from './components/PaintingCanvas'
 import './App.css'
 
 const ThreeDArtStudio = lazy(() => import('./components/ThreeDArtStudio'))
+const StickerStudio = lazy(() => import('./components/StickerStudio'))
 
 const patterns = [
   { name: 'Bloom', icon: '✺' },
@@ -396,6 +397,20 @@ function App() {
     alert('3D artwork saved successfully to your Gallery!')
   }
 
+  function saveStickerToGallery(image) {
+    const stickerCount = gallery.filter((item) => item.type === 'Sticker').length
+    const sticker = {
+      id: `sticker-${Date.now()}`,
+      name: `Sticker Design ${stickerCount + 1}`,
+      type: 'Sticker',
+      image,
+    }
+
+    setGallery((currentGallery) => [sticker, ...currentGallery])
+    setActiveTab('Gallery')
+    alert('Sticker design saved successfully to your Gallery!')
+  }
+
   return (
     <div className="app-container">
       <nav className="navbar">
@@ -407,7 +422,7 @@ function App() {
         </div>
 
         <div className="nav-links">
-          {['Pattern Studio', 'Painting Studio', '3D Art Studio', 'Gallery', 'About'].map((tab) => (
+          {['Pattern Studio', 'Painting Studio', 'Sticker Studio', '3D Art Studio', 'Gallery', 'About'].map((tab) => (
             <button
               key={tab}
               className={`nav-link ${activeTab === tab ? 'active' : ''}`}
@@ -632,6 +647,12 @@ function App() {
         <div hidden={activeTab !== 'Painting Studio'}>
           <PaintingStudio onSavePainting={savePaintingToGallery} />
         </div>
+
+        {activeTab === 'Sticker Studio' && (
+          <Suspense fallback={<p className="welcome-description">Loading Sticker Studio...</p>}>
+            <StickerStudio onSaveSticker={saveStickerToGallery} />
+          </Suspense>
+        )}
 
         {activeTab === '3D Art Studio' && (
           <Suspense fallback={<p className="welcome-description">Loading 3D Art Studio...</p>}>

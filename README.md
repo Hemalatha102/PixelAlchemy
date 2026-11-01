@@ -6,6 +6,7 @@ PixelAlchemy is a browser-based creative app for making generative patterns, fre
 
 - **Pattern Studio:** Create Bloom, Spiral, Waves, and Particles artwork, customize palettes, and download PNG images.
 - **Painting Studio:** Draw with a brush, pencil, or eraser; choose colors and brush sizes; undo, redo, and save paintings.
+- **Sticker Studio:** Browse animal, nature, heart, sky, food, and fantasy stickers. Add, move, resize, rotate, duplicate, and recolor stickers; add custom text; choose transparent, solid, gradient, or confetti backgrounds; download PNG artwork or save it to the Gallery.
 - **3D Art Studio:** Build scenes with cubes, spheres, cylinders, cones, toruses, pyramids, hearts, stars, and custom geometric shapes. Adjust materials, colors, rotation, object position and size, camera zoom, lighting, and shadows. Export or import a scene as JSON and download a PNG snapshot.
 - **Gallery:** Save and revisit Pattern, Painting, and 3D Art creations. Gallery entries are stored in your browser.
 - **Frontend only:** No backend service or database is required.
@@ -56,6 +57,8 @@ src/
   components/
     ArtCanvas.jsx
     PaintingCanvas.jsx
+    StickerStudio.jsx
+    StickerStudio.css
     ThreeDArtStudio.jsx
     ThreeDArtStudio.css
   utils/
