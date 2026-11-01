@@ -32,7 +32,18 @@ npm run dev      # Start the development server
 npm run lint     # Run ESLint
 npm run build    # Create a production build in dist/
 npm run preview  # Preview the production build locally
+npm run deploy   # Build and publish dist/ to the gh-pages branch
 ```
+
+## Deploy to GitHub Pages
+
+The Vite base path is configured for this repository at `/PixelAlchemy/`. To deploy, make sure your GitHub account is authorized in Git Credential Manager, then run:
+
+```bash
+npm run deploy
+```
+
+In the repository's GitHub settings, open **Pages** and select the `gh-pages` branch with the `/ (root)` folder as the publishing source if GitHub Pages is not already enabled. The site URL is `https://hemalatha102.github.io/PixelAlchemy/`.
 
 ## Saving artwork
 
